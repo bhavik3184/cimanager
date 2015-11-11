@@ -23,6 +23,14 @@
     <!-- HTML5 Shim -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+    <script>
+        document.createElement('ui-select');
+        document.createElement('ui-select-match');
+        document.createElement('ui-select-choices');
+    </script>
+
     <![endif]-->
 </head>
 
@@ -39,7 +47,11 @@
 </section>
 <!--Embedding The User Object-->
 <script type="text/javascript">
-    var user = {{user | json | safe}}
+    var user = {
+    {
+        user | json | safe
+    }
+    }
 </script>
 
 <!--Application JavaScript Files-->

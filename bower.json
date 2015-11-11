@@ -17,6 +17,7 @@
     "bootstrap": "~3"
   },
   "resolutions": {
-    "angular": "1.4.7"
+    "angular": "1.4.7",
+    "angular-ui-select":"0.13.2"
   }
 }

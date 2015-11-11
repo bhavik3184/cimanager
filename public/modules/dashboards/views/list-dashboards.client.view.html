@@ -1,0 +1,243 @@
+<section data-ng-controller="DashboardsController" data-ng-init="listCompanies()">
+    <div class="row">
+        <!--Add a Company-->
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-white">
+                        Company
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form data-ng-submit="create()" novalidate autocomplete="off">
+                        <fieldset>
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" placeholder="Add a new company" id="name"
+                                       data-ng-model="name" name="name" required>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">
+                                            <i class="glyphicon glyphicon-plus"></i>
+                                        </button>
+                                    </span>
+                            </div>
+                            <div data-ng-show="companyerror" class="text-center text-danger">
+                                <strong data-ng-bind="companyerror"></strong>
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <br/>
+
+                    <div class="input-group input-group-sm" data-ng-hide='companies.length==0'>
+                        <input type="text" class="form-control" placeholder="Search company"
+                               data-ng-model="searchquery">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                    </div>
+
+                    <br/>
+
+                    <h5 class="text-muted" data-ng-show='companies.length==0'>
+                        No companies to display
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+        <!--Add a Itinerary-->
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-white">
+                        Itinerary
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form data-ng-submit="createItinerary()" novalidate autocomplete="off">
+                        <fieldset>
+                            <div class="row">
+                                <ui-select class="col-md-12" theme="select2" data-ng-model="companies.selected"
+                                           append-to-body="true"
+                                           on-select="setitineraryCompany($item, $model)">
+                                    <ui-select-match placeholder="Select company to schedule a itinerary">
+                                        {{$select.selected.name}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="company in companies | filter: $select.search">
+                                        <div ng-bind-html="company.name | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <br/>
+
+                            <div class="row">
+                                <ui-select class="col-md-12" theme="select2" data-ng-model="agendamaster.selected"
+                                           append-to-body="true"
+                                           on-select="setitineraryAgenda($item, $model)">
+                                    <ui-select-match placeholder="Select agenda...">{{$select.selected}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in agendamaster | filter: $select.search">
+                                        <div ng-bind-html="item | highlight: $select.search"></div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <br/>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group input-group-sm">
+                                        <input type="text" class="form-control" datepicker-popup="{{format}}"
+                                               data-ng-model="newItinerary.date"
+                                               is-open="status.opened" min-date="minDate" max-date="maxDate"
+                                               datepicker-options="dateOptions" date-disabled="disabled(date, mode)"
+                                               ng-required="true" close-text="Close"/>
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="open($event)">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </button>
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+
+                            <div class="row">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-default">
+                                        Confirm?
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div data-ng-show="itineraryError" class="text-center text-danger">
+                                <strong data-ng-bind="itineraryError"></strong>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--Update a Itinerary-->
+        <div class="col-md-3" data-ng-init="UpdateMOM()">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-white">
+                        Update MOM <span data-ng-hide="totalPendingItinary.length == 0">
+                            - {{totalPendingItinary.length}} pending
+                        </span>
+                    </h3>
+                </div>
+                <div class="panel-body" data-ng-init="calledafterUpdate()">
+                    <div data-ng-hide="totalPendingItinary.length == 0">
+                        <form data-ng-submit="updateItinerary(pendingItinary[0])" novalidate autocomplete="off">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-12" data-ng-repeat="ite in pendingItinary">
+                                        <b> {{ite.date | date:'dd MMM,yyyy'}}</b>, {{ite.agenda}}
+                                        <br/>
+                                        @ <b>{{ite.company.name}}</b>
+                                        <br/><br/>
+
+                                        <textarea class="form-control" rows="4" data-ng-model="ite.description"
+                                                  placeholder="Update minutes of meeting here." data-ng-required
+                                                  style="width: 100%"></textarea>
+                                    </div>
+                                </div>
+                                <br/>
+                                {{toUpdate}}
+                                <div class="row">
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-default btn-sm">
+                                            Update
+                                        </button>
+                                    </div>
+                                </div>
+                                <div data-ng-show="updateItineraryError" class="text-center text-danger">
+                                    <strong data-ng-bind="updateItineraryError"></strong>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div data-ng-hide="!totalPendingItinary.length == 0">
+                        <b>No pending MOM to update.</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Upcoming Itinerary-->
+        <div class="col-md-3" data-ng-init="plannedItineraries()">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-white">
+                        Planned itinerary
+                    </h3>
+                </div>
+                <div class="panel-body text-sm">
+                    <div data-ng-hide="allItineraryData.length == 0">
+                        <ui-select class="col-md-12" theme="select2" data-ng-model="piCount" append-to-body="true"
+                                   search-enabled="false" on-select="updateShowingofPlannedItineraries($item, $model)">
+                            <ui-select-match placeholder="Select">Showing {{piCount}} of {{allItineraryData.length}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="piCount in [3,5,9,99] track by $index">
+                                <div ng-bind-html="piCount">Show {{piCount}}</div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <br/><br/>
+
+                        <div data-ng-repeat="ite in allItineraryData| limitTo:piCount">
+                            <b> {{ite.date | date:'dd MMM,yyyy'}}</b>, {{ite.agenda}}
+                            <br/>
+                            @ <b>{{ite.company.name}}</b>
+                            <br/><br/>
+                        </div>
+                    </div>
+                    <div data-ng-hide="!allItineraryData.length == 0">
+                        <b>No planned itinerary!!</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" data-ng-init="listCompanies()">
+        <!--Company Search-->
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-white">
+                        Companies search
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <h5 class="text-muted" data-ng-show='companies.length==0'>
+                        No Companies to show. {{companies.length}}
+                    </h5>
+
+                    <div class="input-group input-group-sm" data-ng-show='companies.length!=0'>
+                        <input type="text" class="form-control" placeholder="Find a company" id="findCompany"
+                               data-ng-model="findCompany"><br/><br/>
+
+                        <div ng-repeat="comp in companies|filter:findCompany">
+                            {{comp.name}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Itinerary Report-->
+        <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-white">
+                        Itinerary Report
+                    </h3>
+                </div>
+                <div class="panel-body" data-ng-init="ItinerariesReport()">
+                    <div id="grid1" ui-grid="itineraryData" ui-grid-grouping ui-grid-selection ui-grid-exporter
+                         class="grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,36 @@
+<div class="container" data-ng-controller="HeaderController">
+    <div class="panel panel-default" data-ng-show="authentication.user">
+        <div class="panel-heading">
+            <h3 class="panel-title text-white">
+                Welcome
+                        <span class="text-capitalize" data-ng-bind="authentication.user.displayName">
+                            {{authentication}}
+                        </span>
+                &nbsp;&nbsp;&nbsp;
+                <a href="/#!/dashboards">
+                    <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </button>
+                </a>
+                &nbsp;
+                <a href="/#!/settings/profile">
+                    <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </button>
+                </a>
+                &nbsp;
+                <a href="/#!/settings/password">
+                    <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-qrcode"></span>
+                    </button>
+                </a>
+                &nbsp;
+                <a href="/auth/signout">
+                    <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-off"></span>
+                    </button>
+                </a>
+            </h3>
+        </div>
+    </div>
+</div>

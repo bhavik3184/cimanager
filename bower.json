@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "ZNL Bearings client itinerary manager",
   "dependencies": {
-    "jquery":"2.1.4",
     "angular": "~1.2",
     "angular-animate": "1.2.6",
     "angular-bootstrap": "~0.11.2",
@@ -12,14 +11,11 @@
     "angular-resource": "~1.2",
     "angular-sanitize": "~1.2",
     "angular-touch": "~1.2",
-    "angular-ui-grid":"3.0.6",
     "angular-ui-router": "~0.2.11",
-    "angular-ui-select":"0.12.1",
     "angular-ui-utils": "~0.1.1",
     "bootstrap": "~3"
   },
   "resolutions": {
-    "angular": "1.4.7",
-    "angular-ui-select":"0.13.2"
+    "angular": "1.4.7"
   }
 }

@@ -5,7 +5,7 @@
 	"author": "YOUNGTURK",
 	"engines": {
 		"node": "0.10.x",
-		"npm": "1.4.x"
+		"npm": "3.3.x"
 	},
 	"scripts": {
 		"start": "grunt",

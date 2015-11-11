@@ -14,9 +14,9 @@ module.exports = {
 		lib: {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
-				'public/lib/bootstrap/dist/css/bootstrap-theme.css'
-				//'public/lib/angular-ui-select/dist/select.css',
-				//'public/lib/angular-ui-grid/ui-grid.min.css'
+				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				'public/lib/angular-ui-select/dist/select.css',
+				'public/lib/angular-ui-grid/ui-grid.min.css'
 			],
 			js: [
 				'public/lib/jquery/dist/jquery.js',
@@ -30,8 +30,8 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
-				//'public/lib/angular-ui-select/dist/select.js',
-				//'public/lib/angular-ui-grid/ui-grid.min.js',
+				'public/lib/angular-ui-select/dist/select.js',
+				'public/lib/angular-ui-grid/ui-grid.min.js',
 				'public/lib/pdfmake/build/csv.js',
 				'public/lib/pdfmake/build/pdfmake.js',
 				'public/lib/pdfmake/build/vfs_fonts.js',

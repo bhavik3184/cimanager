@@ -14,7 +14,7 @@
 
     <!-- Fav Icon -->
     <link href="/modules/core/img/brand/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.13.2/select.min.css" type="text/css"/>
+
     <!--Application CSS Files-->
     {% for cssFile in cssFiles %}
     <link rel="stylesheet" href="{{cssFile}}">
@@ -45,7 +45,6 @@
 <!--Application JavaScript Files-->
 {% for jsFile in jsFiles %}
 <script type="text/javascript" src="{{jsFile}}"></script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.13.2/select.min.js" type="application/javascript"> </script>-->
 {% endfor %}
 
 {% if process.env.NODE_ENV === 'development' %}

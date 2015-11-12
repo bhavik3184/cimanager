@@ -4,6 +4,14 @@
   "description": "ZNL Bearings client itinerary manager",
   "dependencies": {
     "angular": "~1.2",
+    "angular-bootstrap": "~0.11.2",
+    "angular-cookies": "~1.2",
+    "angular-mocks": "~1.2",
+    "angular-resource": "~1.2",
+    "angular-sanitize": "~1.2",
+    "angular-touch": "~1.2",
+    "angular-ui-router": "~0.2.11",
+    "angular-ui-utils": "~0.1.1",
     "bootstrap": "~3"
   },
   "resolutions": {

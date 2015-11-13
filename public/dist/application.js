@@ -560,25 +560,22 @@ query.select = select;
     };
 
 
-//    select.prototype = Object.create(query.prototype);
-//    select.prototype.where = function(field) {
-//        if (field) this._expression = new Expression(field);
-//        return this;
-//    };
-//    select.prototype.end = function() {
-//        return this.on(this.array);
-//    };
-//
-//
-//
-//
-//    function Expression(term, operator, value, not) {
-//        this.term = term;
-//        this.operator = operator;
-//        this.value = value;
-//        this.not = not;
-//        this.template = '%not(%term %operator %value)';
-//    }
+    select.prototype = Object.create(query.prototype);
+    select.prototype.where = function(field) {
+        if (field) this._expression = new Expression(field);
+        return this;
+    };
+    select.prototype.end = function() {
+        return this.on(this.array);
+    };
+
+    function Expression(term, operator, value, not) {
+        this.term = term;
+        this.operator = operator;
+        this.value = value;
+        this.not = not;
+        this.template = '%not(%term %operator %value)';
+    }
 //
 //    Expression.prototype = {
 //        toString: function() {

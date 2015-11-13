@@ -378,8 +378,8 @@ query.select = select;
         _field: function(field) {
             this._expression = new Expression(field);
         },
-        _add: function(eval, clean) {
-            this._eval += eval;
+        _add: function(evals, clean) {
+            this._eval += evals;
             if (clean) this._expression = null;
             return this;
         },

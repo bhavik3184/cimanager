@@ -4403,7 +4403,7 @@ body {
 .form-control {
     border-width: 1px;
     border-color: #bec3c6;
-    width: inherit !important;
+    width: inherit;
     -webkit-box-shadow: none;
     box-shadow: none;
     color: #30373F

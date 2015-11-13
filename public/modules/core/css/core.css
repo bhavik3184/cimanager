@@ -4400,40 +4400,40 @@ color: #fff
 /*padding: 6px 8px 4px*/
 /*}*/
 
-/*.form-control {*/
-/*border-width: 2px;*/
-/*border-color: #bec3c6;*/
-/*-webkit-box-shadow: none;*/
-/*box-shadow: none;*/
-/*color: #30373F*/
-/*}*/
+.form-control {
+border-width: 2px;
+border-color: #bec3c6;
+-webkit-box-shadow: none;
+box-shadow: none;
+color: #30373F
+}
 
-/*.form-control:focus, .form-input-flat .form-control:focus {*/
-/*border-color: #8d9aa5;*/
-/*-webkit-box-shadow: none;*/
-/*box-shadow: none;*/
-/*outline: 0*/
-/*}*/
+.form-control:focus, .form-input-flat .form-control:focus {
+border-color: #8d9aa5;
+-webkit-box-shadow: none;
+box-shadow: none;
+outline: 0
+}
 
 /*.input-group-addon {*/
 /*background: #ebeced*/
 /*}*/
 
-/*.form-control::-webkit-input-placeholder {*/
-/*color: #8d9aa5*/
-/*}*/
+.form-control::-webkit-input-placeholder {
+color: #8d9aa5
+}
 
-/*.form-control:-moz-placeholder {*/
-/*color: #8d9aa5*/
-/*}*/
+.form-control:-moz-placeholder {
+color: #8d9aa5
+}
 
-/*.form-control::-moz-placeholder {*/
-/*color: #8d9aa5*/
-/*}*/
+.form-control::-moz-placeholder {
+color: #8d9aa5
+}
 
-/*.form-control:-ms-input-placeholder {*/
-/*color: #8d9aa5*/
-/*}*/
+.form-control:-ms-input-placeholder {
+color: #8d9aa5
+}
 
 /*.form-input-flat .form-control {*/
 /*background: #ebeced;*/
@@ -4797,7 +4797,7 @@ color: #fff
 
 .panel.panel-default .panel-heading {
     /*background: #ebeced*/
-    background: #333
+    background: #3C454D !important
 }
 
 .panel.panel-default .panel-heading .panel-title, .panel.panel-white .panel-heading .panel-title {

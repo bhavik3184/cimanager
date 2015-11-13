@@ -291,7 +291,7 @@ angular.module('core').controller('HeaderController', ['$scope', 'Authentication
 		});
 	}
 ]);
-'use strict';
+//'use strict';
 
 
 angular.module('core').controller('HomeController', ['$scope', 'Authentication',

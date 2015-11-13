@@ -13,16 +13,16 @@ function query(field) {
     this._reduce = [];
 }
 
-//function select(array) {
-//    if ( !(this instanceof select) ) {
-//        return new select(array);
-//    }
-//    query.call(this);
-//    this.array = array;
-//}
-//
-//query.select = select;
-//
+function select(array) {
+    if ( !(this instanceof select) ) {
+        return new select(array);
+    }
+    query.call(this);
+    this.array = array;
+}
+
+query.select = select;
+
 //(function() {
 //
 //    query.prototype = {

@@ -3978,9 +3978,9 @@ body {
 /*color: #aab3ba*/
 /*}*/
 
-/*.text-white {*/
-/*color: #fff*/
-/*}*/
+.text-white {
+color: #fff
+}
 
 /*.text-inverse {*/
 /*color: #30373e*/
@@ -4796,7 +4796,8 @@ body {
 }
 
 .panel.panel-default .panel-heading {
-    background: #ebeced
+    /*background: #ebeced*/
+    background: #333
 }
 
 .panel.panel-default .panel-heading .panel-title, .panel.panel-white .panel-heading .panel-title {

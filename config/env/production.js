@@ -33,7 +33,7 @@ module.exports = {
 				'public/lib/angular-bootstrap/ui-bootstrap.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/angular-ui-select/dist/select.js',
-				'public/lib/angular-ui-grid/ui-grid.min.js',
+				//'public/lib/angular-ui-grid/ui-grid.min.js',
 				'public/lib/pdfmake/build/csv.js',
 				'public/lib/pdfmake/build/pdfmake.js',
 				'public/lib/pdfmake/build/vfs_fonts.js',

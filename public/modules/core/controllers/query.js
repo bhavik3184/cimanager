@@ -264,7 +264,6 @@ query.select = select;
     select.prototype.end = function() {
         return this.on(this.array);
     };
-
     function Expression(term, operator, value, not) {
         this.term = term;
         this.operator = operator;
@@ -272,76 +271,71 @@ query.select = select;
         this.not = not;
         this.template = '%not(%term %operator %value)';
     }
-//
-//    Expression.prototype = {
-//        toString: function() {
-//            var self = this;
-//            return this.template.replace(/%\w+/g, function(match) {
-//                switch(match) {
-//                    case '%not':
-//                        return self.not ? '!' : '';
-//                    case '%term':
-//                        return '(typeof obj.' + self.term + ' !== "undefined" ? obj.' + self.term + ' : (typeof obj.get === "function" && obj.get("' + self.term + '")))' + (self.value instanceof Date ? '.getTime()' : '');
-//                    case '%operator':
-//                        return self.operator;
-//                    case '%value':
-//                        return JSON.stringify(self.value instanceof Date ? self.value.getTime() : self.value);
-//                }
-//            });
-//        }
-//    };
-//
-//
-//    function Sort(term, type, direction) {
-//        this.term = term;
-//        this.type = type || this.regular;
-//        this.direction = direction || 1;
-//    }
-//
-//    Sort.prototype = {
-//        toFunction: function() {
-//            return this.type(this.term, this.direction);
-//        },
-//        regular: function(prop, order) {
-//            return function(a, b) {
-//                a = a[prop];
-//                b = b[prop];
-//                if (b == null) return -1;
-//                if (a == null) return 1;
-//                return order * (a > b ? 1 : (a < b ? -1 : 0));
-//            };
-//        },
-//        numeric: function(prop, order) {
-//            return function(a, b) {
-//                a = parseFloat(a[prop]);
-//                b = parseFloat(b[prop]);
-//                if (b == null || isNaN(b)) return -1;
-//                if (a == null || isNaN(a)) return 1;
-//                return order * (a - b);
-//            };
-//        },
-//        date: function(prop, order) {
-//            return function(a, b) {
-//                a = a[prop];
-//                b = b[prop];
-//                if (b == null) return -1;
-//                if (a == null) return 1;
-//                return order * (a.getTime() - b.getTime());
-//            };
-//        },
-//        custom: function(prop, func) {
-//            if (prop) {
-//                return function(a, b) {
-//                    return func(a[prop], b[prop]);
-//                };
-//            } else {
-//                return function(a, b) {
-//                    return func(a, b);
-//                };
-//            }
-//        }
-//    };
-//
+    Expression.prototype = {
+        toString: function() {
+            var self = this;
+            return this.template.replace(/%\w+/g, function(match) {
+                switch(match) {
+                    case '%not':
+                        return self.not ? '!' : '';
+                    case '%term':
+                        return '(typeof obj.' + self.term + ' !== "undefined" ? obj.' + self.term + ' : (typeof obj.get === "function" && obj.get("' + self.term + '")))' + (self.value instanceof Date ? '.getTime()' : '');
+                    case '%operator':
+                        return self.operator;
+                    case '%value':
+                        return JSON.stringify(self.value instanceof Date ? self.value.getTime() : self.value);
+                }
+            });
+        }
+    };
+    function Sort(term, type, direction) {
+        this.term = term;
+        this.type = type || this.regular;
+        this.direction = direction || 1;
+    }
+    Sort.prototype = {
+        toFunction: function() {
+            return this.type(this.term, this.direction);
+        },
+        regular: function(prop, order) {
+            return function(a, b) {
+                a = a[prop];
+                b = b[prop];
+                if (b == null) return -1;
+                if (a == null) return 1;
+                return order * (a > b ? 1 : (a < b ? -1 : 0));
+            };
+        },
+        numeric: function(prop, order) {
+            return function(a, b) {
+                a = parseFloat(a[prop]);
+                b = parseFloat(b[prop]);
+                if (b == null || isNaN(b)) return -1;
+                if (a == null || isNaN(a)) return 1;
+                return order * (a - b);
+            };
+        },
+        date: function(prop, order) {
+            return function(a, b) {
+                a = a[prop];
+                b = b[prop];
+                if (b == null) return -1;
+                if (a == null) return 1;
+                return order * (a.getTime() - b.getTime());
+            };
+        },
+        custom: function(prop, func) {
+            if (prop) {
+                return function(a, b) {
+                    return func(a[prop], b[prop]);
+                };
+            } else {
+                return function(a, b) {
+                    return func(a, b);
+                };
+            }
+        }
+    };
 })();
 
 if (typeof exports !== 'undefined' && typeof module !== 'undefined') {

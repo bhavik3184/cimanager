@@ -18,8 +18,8 @@
     <!--Application CSS Files-->
     {% for cssFile in cssFiles %}
     <link rel="stylesheet" href="{{cssFile}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.13.2/select.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.0.7/ui-grid.min.css"/>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.13.2/select.min.css"/>-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.0.7/ui-grid.min.css"/>-->
     {% endfor %}
 
     <!-- HTML5 Shim -->
@@ -47,8 +47,8 @@
 <!--Application JavaScript Files-->
 {% for jsFile in jsFiles %}
 <script type="text/javascript" src="{{jsFile}}"></script>
-<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.13.2/select.min.js"></script>
-<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.0.7/ui-grid.min.js"></script>
+<!--<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.13.2/select.min.js"></script>-->
+<!--<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/3.0.7/ui-grid.min.js"></script>-->
 {% endfor %}
 
 {% if process.env.NODE_ENV === 'development' %}

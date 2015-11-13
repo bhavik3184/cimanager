@@ -4,7 +4,7 @@ module.exports = {
 	app: {
 		title: 'CIManager',
 		description: 'Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js',
-		keywords: 'MongoDB, Express, AngularJS, Node.js'
+		keywords: ''
 	},
 	port: process.env.PORT || 3000,
 	templateEngine: 'swig',

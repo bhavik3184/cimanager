@@ -302,6 +302,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 	}
 ]);
 
+'use strict';
 
 function query(field) {
     if ( !(this instanceof query) ) {

@@ -6,18 +6,38 @@ module.exports = {
 		lib: {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.min.css',
-				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css'
+				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css',
+				'public/lib/angular-ui-select/dist/select.css',
+				'public/lib/angular-ui-grid/ui-grid.min.css'
 			],
 			js: [
-				'public/lib/angular/angular.min.js',
-				'public/lib/angular-resource/angular-resource.js', 
-				'public/lib/angular-cookies/angular-cookies.js', 
-				'public/lib/angular-animate/angular-animate.js', 
-				'public/lib/angular-touch/angular-touch.js', 
-				'public/lib/angular-sanitize/angular-sanitize.js', 
-				'public/lib/angular-ui-router/release/angular-ui-router.min.js',
-				'public/lib/angular-ui-utils/ui-utils.min.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'
+				//'public/lib/angular/angular.min.js',
+				//'public/lib/angular-resource/angular-resource.js',
+				//'public/lib/angular-cookies/angular-cookies.js',
+				//'public/lib/angular-animate/angular-animate.js',
+				//'public/lib/angular-touch/angular-touch.js',
+				//'public/lib/angular-sanitize/angular-sanitize.js',
+				//'public/lib/angular-ui-router/release/angular-ui-router.min.js',
+				//'public/lib/angular-ui-utils/ui-utils.min.js',
+				//'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js'
+
+				'public/lib/jquery/dist/jquery.js',
+				'public/lib/angular/angular.js',
+				'public/lib/angular-resource/angular-resource.js',
+				'public/lib/angular-cookies/angular-cookies.js',
+				'public/lib/angular-animate/angular-animate.js',
+				'public/lib/angular-touch/angular-touch.js',
+				'public/lib/angular-sanitize/angular-sanitize.js',
+				'public/lib/angular-ui-router/release/angular-ui-router.js',
+				'public/lib/angular-ui-utils/ui-utils.js',
+				'public/lib/angular-bootstrap/ui-bootstrap.js',
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+				'public/lib/angular-ui-select/dist/select.js',
+				'public/lib/angular-ui-grid/ui-grid.min.js',
+				'public/lib/pdfmake/build/csv.js',
+				'public/lib/pdfmake/build/pdfmake.js',
+				'public/lib/pdfmake/build/vfs_fonts.js',
+				'public/lib/array-query/lib/query.js'
 			]
 		},
 		css: 'public/dist/application.min.css',

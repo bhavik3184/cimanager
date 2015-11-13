@@ -37,7 +37,6 @@ module.exports = {
 				'public/lib/pdfmake/build/csv.js',
 				'public/lib/pdfmake/build/pdfmake.min.js',
 				'public/lib/pdfmake/build/vfs_fonts.js'
-				//'public/lib/array-query/lib/query.js'
 			]
 		},
 		css: 'public/dist/application.min.css',

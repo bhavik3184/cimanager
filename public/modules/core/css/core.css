@@ -3979,7 +3979,7 @@ body {
 /*}*/
 
 .text-white {
-color: #fff
+    color: #fff
 }
 
 /*.text-inverse {*/
@@ -4401,18 +4401,19 @@ color: #fff
 /*}*/
 
 .form-control {
-border-width: 2px;
-border-color: #bec3c6;
--webkit-box-shadow: none;
-box-shadow: none;
-color: #30373F
+    border-width: 1px;
+    border-color: #bec3c6;
+    width: inherit !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #30373F
 }
 
 .form-control:focus, .form-input-flat .form-control:focus {
-border-color: #8d9aa5;
--webkit-box-shadow: none;
-box-shadow: none;
-outline: 0
+    border-color: #8d9aa5;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0
 }
 
 /*.input-group-addon {*/
@@ -4420,19 +4421,19 @@ outline: 0
 /*}*/
 
 .form-control::-webkit-input-placeholder {
-color: #8d9aa5
+    color: #8d9aa5
 }
 
 .form-control:-moz-placeholder {
-color: #8d9aa5
+    color: #8d9aa5
 }
 
 .form-control::-moz-placeholder {
-color: #8d9aa5
+    color: #8d9aa5
 }
 
 .form-control:-ms-input-placeholder {
-color: #8d9aa5
+    color: #8d9aa5
 }
 
 /*.form-input-flat .form-control {*/

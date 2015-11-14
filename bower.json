@@ -11,14 +11,16 @@
     "angular-resource": "~1.2",
     "angular-sanitize": "~1.2",
     "angular-touch": "~1.2",
-    "angular-ui-grid":"3.0.7",
+    "angular-ui-grid": "3.0.7",
     "angular-ui-router": "~0.2.11",
-    "angular-ui-select":"0.12.1",
+    "angular-ui-select": "0.12.1",
     "angular-ui-utils": "~0.1.1",
-    "bootstrap": "~3"
+    "bootstrap": "~3",
+    "pdfmake": "0.1.18",
+    "array-query":"0.1.1"
   },
   "resolutions": {
     "angular": "1.4.7",
-    "angular-ui-select":"0.13.2"
+    "angular-ui-select": "0.13.2"
   }
 }
